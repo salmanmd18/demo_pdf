@@ -4,15 +4,15 @@
 
 /* App-level tweaks */
 .toolbar-button {
-  @apply px-3 py-2 rounded-md bg-white border border-gray-300 shadow-sm hover:bg-gray-100 active:bg-gray-200 transition;
+  @apply px-3 py-2 rounded-md bg-white border border-gray-300 shadow-sm hover:bg-gray-100 active:bg-gray-200 transition-all duration-200 font-medium;
 }
 
-.field-placeholder {
-  @apply bg-blue-50 border-2 border-dashed border-blue-400 text-blue-600 text-xs flex items-center justify-center select-none;
+.toolbar-button.dragging {
+  @apply bg-blue-100 border-blue-400 shadow-lg scale-105;
 }
 
 .pdf-container {
-  @apply bg-gray-100 border border-gray-200 rounded-lg p-2 overflow-auto;
+  @apply bg-gray-100 border border-gray-200 rounded-lg p-4 overflow-auto;
 }
 
 .overlay-container {
@@ -21,5 +21,132 @@
 
 .overlay-interactive {
   pointer-events: auto;
+}
+
+/* Enhanced field styling */
+.field-controls {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+/* Field selection styling - clean and without shadows */
+.field-renderer {
+  @apply transition-all duration-200;
+}
+
+.field-renderer.ring-2 {
+  @apply ring-blue-500 ring-offset-1;
+}
+
+/* Remove any unwanted shadows from field elements */
+.field-renderer * {
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* Clean field placeholder styling */
+.field-placeholder {
+  @apply bg-blue-50 border-2 border-dashed border-blue-400 text-blue-600 text-xs flex items-center justify-center select-none transition-all duration-200;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.field-placeholder:hover {
+  @apply bg-blue-100 border-blue-500;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Drag and drop enhancements */
+.drag-over {
+  @apply ring-4 ring-blue-400 ring-opacity-50 bg-blue-50 bg-opacity-30;
+}
+
+/* Responsive improvements */
+@media (max-width: 640px) {
+  .toolbar-button {
+    @apply px-2 py-1.5 text-sm;
+  }
+  
+  .pdf-container {
+    @apply p-2;
+  }
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  @apply transition-colors duration-200;
+}
+
+/* Enhanced focus states */
+.focus-visible:focus {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+}
+
+/* Custom scrollbar */
+.overlay-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.overlay-container::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded;
+}
+
+.overlay-container::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded hover:bg-gray-400;
+}
+
+/* Field hover effects */
+.field-placeholder:hover {
+  @apply transform scale-105 shadow-md;
+}
+
+/* Signature canvas enhancements */
+.signature-canvas {
+  @apply cursor-crosshair;
+}
+
+.signature-canvas:active {
+  @apply cursor-grabbing;
+}
+
+/* Ensure signature canvas renders cleanly without shadows */
+.react-signature-canvas canvas {
+  filter: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  background: transparent !important;
+}
+
+/* Remove any unwanted canvas effects */
+.react-signature-canvas {
+  filter: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+/* Loading states */
+.loading-spinner {
+  @apply animate-spin;
+}
+
+/* Field type indicators */
+.field-type-indicator {
+  @apply absolute -top-2 -left-2 bg-blue-500 text-white text-xs px-2 py-1 rounded-full shadow-lg;
+}
+
+/* Enhanced button states */
+.btn-primary {
+  @apply bg-blue-500 text-white border-blue-500 hover:bg-blue-600 hover:border-blue-600;
+}
+
+.btn-secondary {
+  @apply bg-gray-500 text-white border-gray-500 hover:bg-gray-600 hover:border-gray-600;
+}
+
+.btn-success {
+  @apply bg-green-500 text-white border-green-500 hover:bg-green-600 hover:border-green-600;
+}
+
+.btn-danger {
+  @apply bg-red-500 text-white border-red-500 hover:bg-red-600 hover:border-red-600;
 }
 
