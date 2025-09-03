@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* App-level tweaks */
+.toolbar-button {
+  @apply px-3 py-2 rounded-md bg-white border border-gray-300 shadow-sm hover:bg-gray-100 active:bg-gray-200 transition;
+}
+
+.field-placeholder {
+  @apply bg-blue-50 border-2 border-dashed border-blue-400 text-blue-600 text-xs flex items-center justify-center select-none;
+}
+
+.pdf-container {
+  @apply bg-gray-100 border border-gray-200 rounded-lg p-2 overflow-auto;
+}
+
+.overlay-container {
+  @apply absolute inset-0 pointer-events-none; /* enable selectively */
+}
+
+.overlay-interactive {
+  pointer-events: auto;
+}
+
